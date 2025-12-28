@@ -15,6 +15,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        val boardGrid = findViewById<android.widget.GridLayout>(R.id.boardGrid)
+        val buttons = Array(9) { i ->
+            boardGrid.getChildAt(i) as Button
+        }
+        /*
         val buttons = arrayOf(
             findViewById<Button>(R.id.btn00),
             findViewById<Button>(R.id.btn01),
@@ -26,9 +31,10 @@ class MainActivity : AppCompatActivity() {
             findViewById<Button>(R.id.btn21),
             findViewById<Button>(R.id.btn22)
         )
+         */
 
-        val board = Array(3) {Array(3) {""} }
-        var currentPlayer = "X"
+        val board = Array(3) {Array(3) {' '} }
+        var currentPlayer = 'X'
         var movesCount = 0
 
         for (i in buttons.indices) {
@@ -37,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             btn.setOnClickListener {
                 if(btn.text.isNotEmpty()) return@setOnClickListener
 
-                btn.text = currentPlayer
+                btn.text = currentPlayer.toString()
 
                 val row = i/3
                 val col = i%3
@@ -52,17 +58,18 @@ class MainActivity : AppCompatActivity() {
 
                 if(movesCount == 9) {
                     Toast.makeText(this, "Draw!", Toast.LENGTH_SHORT).show()
+                    disableBoard(buttons)
                     return@setOnClickListener
                 }
 
-                currentPlayer = if(currentPlayer =="X") "O" else "X"
+                currentPlayer = if(currentPlayer =='X') 'O' else 'X'
             }
         }
 
         val restartBtn = findViewById<Button>(R.id.btnRestart)
         restartBtn.setOnClickListener {
             resetGame(buttons, board)
-            currentPlayer = "X"
+            currentPlayer = 'X'
             movesCount = 0
         }
 
@@ -73,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkWinner(board: Array<Array<String>>, player: String): Boolean {
+    private fun checkWinner(board: Array<Array<Char>>, player: Char): Boolean {
         //Rows
         for(r in 0..2) {
             if(board[r][0]==player && board[r][1] == player && board[r][2]== player) return true
@@ -95,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun resetGame(buttons: Array<Button>, board: Array<Array<String>>) {
+    private fun resetGame(buttons: Array<Button>, board: Array<Array<Char>>) {
         for(i in buttons.indices) {
             buttons[i].text = ""
             buttons[i].isEnabled = true
@@ -103,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
         for(r in 0..2) {
             for (c in 0..2) {
-                board[r][c] = ""
+                board[r][c] = ' '
             }
         }
     }
