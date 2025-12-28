@@ -7,13 +7,100 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <GridLayout
+        android:id="@+id/boardGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:columnCount="3"
+        android:rowCount="3"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btn00"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text=""
+            android:textSize="24sp"
+            android:backgroundTint="#DDDDDD" />
+
+        <Button
+            android:id="@+id/btn01"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text=""
+            android:textSize="24sp"
+            android:backgroundTint="#DDDDDD" />
+
+        <Button
+            android:id="@+id/btn02"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text=""
+            android:textSize="24sp"
+            android:backgroundTint="#DDDDDD" />
+
+        <Button
+            android:id="@+id/btn10"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text=""
+            android:textSize="24sp"
+            android:backgroundTint="#DDDDDD" />
+
+        <Button
+            android:id="@+id/btn11"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text=""
+            android:textSize="24sp"
+            android:backgroundTint="#DDDDDD" />
+
+        <Button
+            android:id="@+id/btn12"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text=""
+            android:textSize="24sp"
+            android:backgroundTint="#DDDDDD" />
+
+        <Button
+            android:id="@+id/btn20"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text=""
+            android:textSize="24sp"
+            android:backgroundTint="#DDDDDD" />
+
+        <Button
+            android:id="@+id/btn21"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text=""
+            android:textSize="24sp"
+            android:backgroundTint="#DDDDDD" />
+        <Button
+            android:id="@+id/btn22"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text=""
+            android:textSize="24sp"
+            android:backgroundTint="#DDDDDD" />
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/btnRestart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Restard"
+        app:layout_constraintTop_toBottomOf="@id/boardGrid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
